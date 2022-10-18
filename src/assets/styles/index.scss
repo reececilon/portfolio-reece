@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import '../styles/variables';
+@import '../../components/about/about';
+@import '../../components/contact/contact';
+@import '../../components/experience/experience';
+@import '../../components/footer/footer';
+@import '../../components/header/header';
+@import '../../components/nav/nav';
+@import '../../components/services/services';
+@import '../../components/testimonials/testimonials';
+@import '../../components/portfolio/portfolio';
+@import '../../components/loader/loader';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    width: 100vw;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: $poppins;
+    background: $bgColor;
+    color: $colorWhite;
+    line-height: 1.7;
+    background-image: url(../media/bg-texture.png)
+}
+
+.cursor {
+    height: 2rem;
+    width: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('../media/mouse.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ============ GENERAL STYLES =============== */
+.container {
+    width: $containerWidthLg;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-top: 8rem;
+    overflow: hidden;
+    // height: 100vh;
+}
+
+section > h2, section > h5 {
+    text-align: center;
+    color: $colorLight;
+}
+
+h2 {
+    color: $colorPrimary !important;
+    margin-bottom: 3rem;
+}
+
+.text-light {
+    color: $colorLight;
+}
+
+a {
+    color: $colorPrimary;
+    transition: $transition;
+}
+
+a:hover {
+    color: $colorWhite;
+}
+
+.btn {
+    width: max-content;
+    display: inline-block;
+    color: $colorPrimary;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid $colorPrimary;
+    transition: $transition;
+}
+
+.btn:hover {
+    color: $colorWhite;
+    background: $bgColor;
+    border-color: transparent;
+}
+
+.btn-primary {
+    background: $colorPrimary;
+    color: $bgColor;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ============ MEDIA QUERIES (MEDIUM DEVICES) =============== */
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: $containerWidthMd;
+    }
+    .section {
+        margin-top: 6rem;
+    }
+}
+
+/* ============ MEDIA QUERIES (SMALL DEVICES) =============== */
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: $containerWidthSm;
+    }
+    .section > h2 {
+        margin-bottom: 2rem;
+    }
+}

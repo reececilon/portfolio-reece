@@ -1,0 +1,15 @@
+.loading {
+    background: $bgColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-image: none;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    img {
+        // width: 13.125rem;
+        width: 3.9375rem;
+    }
+}
