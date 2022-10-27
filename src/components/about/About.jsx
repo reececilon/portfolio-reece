@@ -1,7 +1,7 @@
 import React from 'react';
 import ME from '../../assets/media/ME.jpeg';
 import profile1 from '../../assets/media/profile1.jpeg';
-import profile2 from '../../assets/media/profile2.jpeg';
+import profile2 from '../../assets/media/profile2.png';
 import { FaAward } from 'react-icons/fa';
 import { FiUsers } from 'react-icons/fi';
 import { MdOutlineLibraryAddCheck } from 'react-icons/md';

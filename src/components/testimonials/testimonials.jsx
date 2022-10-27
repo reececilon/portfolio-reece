@@ -1,7 +1,7 @@
-import React from 'react'
-import profile1 from '../../assets/media/profile1.jpeg';
-import profile3 from '../../assets/media/profile3.jpeg';
-import profile4 from '../../assets/media/profile4.jpeg';
+import React from 'react';
+import profile1 from '../../assets/media/profile1.png';
+import profile3 from '../../assets/media/profile3.png';
+import profile4 from '../../assets/media/profile4.png';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
