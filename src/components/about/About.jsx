@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ME from '../../assets/media/ME.jpeg';
 import profile1 from '../../assets/media/profile1.jpeg';
 import profile2 from '../../assets/media/profile2.png';
@@ -9,9 +9,10 @@ import { motion } from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import {useEffect} from 'react';
 import {useAnimation} from 'framer-motion';
+import { viewContext } from '../../App';
 
 function About() {
-
+    const [activeNav, setActiveNav] = useContext(viewContext);
     const start = {
         hidden: {
             display: 'none'
@@ -32,8 +33,8 @@ function About() {
 
 
     useEffect(() => {
-        console.log('use effect hook abouts, inView = ', inView)
         if(inView) {
+            setActiveNav("#about");
             animationP.start({
                 transition: {
                     delay: 0.5,
@@ -108,7 +109,7 @@ function About() {
             <div className="container about__container">
                 <div className="about__me">
                     <motion.div animate={animationP} className="about__me-image">
-                        <img animate={animationP} src={profile2} alt="About image"/>
+                        <img animate={animationP} src={profile2} alt="About image" loading="lazy"/>
                     </motion.div>
                 </div>
                 <div className="about__content">
@@ -116,7 +117,7 @@ function About() {
                         <motion.article animate={animation1} className='about__card'>
                             <FaAward className='about__icon'/>
                             <h5>Experience</h5>
-                            <small>1+ Years</small>
+                            <small>2+ Years</small>
                         </motion.article>
                         <motion.article animate={animation2} className='about__card'>
                             <FiUsers className='about__icon'/>
@@ -131,15 +132,19 @@ function About() {
                     </div>
 
                     <p>
-                    I'm Reece, a junior full-stack web developer. 
-                    When I was in university, I used coding to analyze Higgs boson interactions using real-world data. 
-                    I thought this was so amazing, and it made me realise how powerful coding can be.
-                    This led me to want to learn more about coding. 
+                    Hello! I'm Reece, a full-stack web developer with over two years 
+                    of experience and a passion for coding that began during university, 
+                    where I analyzed Higgs boson interactions. Awestruck by the power of programming, 
+                    I delved deeper into its potential.
                     </p>
                     <p>
-                    As of now, I enjoy building full-stack web applications. 
-                    In my pursuit of a career in web development, 
-                    I have gained a plethora of skills.
+                    I've dedicated myself to front-end development, crafting 
+                    full-stack web applications, implementing new features, optimizing 
+                    design, and improving UX/UI. I hold a Level 5 Diploma in Full-Stack 
+                    Web Development from the Code Institute and excel in JavaScript, 
+                    Python, C#, React, .NET, Flask, and Django. 
+                    With a diverse skill set and significant expertise, 
+                    I'm well-equipped for any web development challenge.
                     </p>
                     <a href="#contact" className='btn btn-primary'>Let's Talk</a>
                 </div>

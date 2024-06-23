@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import {useInView} from 'react-intersection-observer';
 import IMG1 from '../../assets/media/IMG1.png';
 import IMG2 from '../../assets/media/IMG2.png';
 import IMG3 from '../../assets/media/IMG3.png';
@@ -6,6 +7,7 @@ import IMG4 from '../../assets/media/IMG4.png';
 import IMG5 from '../../assets/media/IMG5.png';
 import IMG6 from '../../assets/media/IMG6.png';
 import { motion } from 'framer-motion';
+import { viewContext } from '../../App';
 
 const data = [
     {
@@ -13,7 +15,6 @@ const data = [
         image:  IMG1,
         title:  'TwigElites Twiglet locator',
         github: 'https://github.com/TaroSchenker/TwigElites-Client',
-        demo:   'https://twigelites.netlify.app/'
     },
     {
         id: 2,
@@ -48,12 +49,11 @@ const data = [
         image:  IMG6,
         title:  'Retail KPI',
         github: 'https://github.com/reececilon/project-3-retail-kpi',
-        demo:   'https://retail-kpis.herokuapp.com/'
     }
 ]
 
 function Portfolio() {
-
+    const [activeNav, setActiveNav] = useContext(viewContext);
     const start = {
         hidden: {
             display: 'none'
@@ -64,8 +64,19 @@ function Portfolio() {
         }
     }
 
+    const {ref, inView} = useInView({
+        threshold: 0.2
+    });
+
+
+    useEffect(() => {
+        if(inView) {
+            setActiveNav("#portfolio");
+        }
+    }, [inView]);
+
     return (
-        <motion.section variants={start} initial='hidden' animate='visible' id='portfolio'>
+        <motion.section variants={start} initial='hidden' animate='visible' ref={ref} id='portfolio'>
             <h5>My recent work</h5>
             <h2>Portfolio</h2>
 
@@ -75,12 +86,12 @@ function Portfolio() {
                         return (
                             <article key={id} className='portfolio__item'>
                                 <div className="portfolio__item-image">
-                                    <img src={image} alt={title}/>
+                                    <img src={image} alt={title} loading="lazy"/>
                                 </div>
                                 <h3>{title}</h3>
                                 <div className='portfolio__item-cta'>
                                     <a href={github} className='btn' target="_blank">GitHub</a>
-                                    <a href={demo} className='btn btn-primary' target="_blank">Live Demo</a>
+                                    {demo && <a href={demo} className='btn btn-primary' target="_blank">Live Demo</a>}
                                 </div>
                             </article>
                         )

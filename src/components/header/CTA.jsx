@@ -1,6 +1,6 @@
 import React from 'react'
 // @ts-ignore
-import Resume from '../../assets/media/Resume.pdf';
+import Resume from '../../assets/media/Resume.2024.pdf';
 
 function CTA() {
     return (

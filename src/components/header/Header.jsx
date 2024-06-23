@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CTA from './CTA';
 import ME from '../../assets/media/ME.png';
 import HeaderSocials from './HeaderSocials';
@@ -9,9 +9,9 @@ import {useAnimation} from 'framer-motion';
 import { BiNoEntry } from 'react-icons/bi';
 import { MdMicNone } from 'react-icons/md';
 import logo from '../../assets/media/icon1.png';
+import { viewContext } from '../../App';
 
 function Header() {
-
     const start = {
         hidden: {
             display: 'none'
@@ -29,7 +29,6 @@ function Header() {
     const animationM = useAnimation();
 
     useEffect(() => {
-        // console.log('use effect hook, inView = ', inView)
         if(inView) {
             animationS.start({
                 y: 0,
@@ -65,7 +64,7 @@ function Header() {
         <motion.div variants={start} initial='hidden' animate='visible' ref={ref}>
             <header>
             <div className="container header__container">
-                <img src={logo} class='logo'/>
+                <img src={logo} className='logo'/>
                 <h5>Hello I'm</h5>
                 <h1>Reece Thatcher</h1>
                 <h5 className="text-light">Fullstack Developer</h5>

@@ -2,14 +2,16 @@ import React from 'react';
 import {AiOutlineHome} from 'react-icons/ai';
 import {AiOutlineUser} from 'react-icons/ai';
 import {RiBook2Line} from 'react-icons/ri';
-import {RiServiceLine} from 'react-icons/ri';
 import {BiMessageSquareDetail} from 'react-icons/bi';
 import {BsFolder} from 'react-icons/bs';
 import { useState } from 'react';
 import {motion} from 'framer-motion';
+import { useContext } from 'react';
+import { viewContext } from '../../App';
 
 function Nav() {
-    const [activeNav, setActiveNav] = useState('#');
+    const [activeNav, setActiveNav] = useContext(viewContext);
+
     return (
         <motion.nav initial={{width: 0}} animate={{width: 'max-content'}} transition={{duration: 0.5}} exit={{opacity: 0}}>
             <motion.a initial={{opacity: 0}} animate={{opacity: 1}}  transition={{delay:0.7}}href='#' onClick={()=>setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineHome /></motion.a>

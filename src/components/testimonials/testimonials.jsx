@@ -21,7 +21,7 @@ const data = [
         id: 2,
         avatar: profile3,
         name: 'An Le',
-        review: "As a start up business , Reece listened to our needs from conception to completion. His attention to detail and creativity resulted in a website we was very happy with. I will definalty use him again in future projects. "
+        review: "As a start up business, Reece listened to our needs from conception to completion. His attention to detail and creativity resulted in a website we were very happy with. I will definitely use him again in future projects. "
     },
     {   
         id: 3,
@@ -53,21 +53,17 @@ function Testimonials() {
                 modules={[Pagination]}
                 spaceBetween={40}
                 slidesPerView={1}
-                // navigation
                 pagination={{ clickable: true }}
-                // scrollbar={{ draggable: true }}
-                // onSwiper={(swiper) => console.log(swiper)}
-                // onSlideChange={() => console.log('slide change')}
                 >
                 {
                     data.map(({id, avatar, name, review}) => {
                         return (
                             <SwiperSlide key={id} className="testimonial">
                                 <div className="client__avatar">
-                                    <img src={avatar} alt='Avatar of client'/>
+                                    <img src={avatar} alt='Avatar of client' loading="lazy"/>
                                 </div>
                                 <h5>{name}</h5>
-                                <small classname='client__review'>
+                                <small className='client__review'>
                                     {review}
                                 </small>
                             </SwiperSlide>

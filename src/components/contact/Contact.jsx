@@ -8,8 +8,11 @@ import { motion } from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import {useEffect} from 'react';
 import {useAnimation} from 'framer-motion';
+import { useContext } from 'react';
+import { viewContext } from '../../App';
 
 function Contact() {
+    const [activeNav, setActiveNav] = useContext(viewContext);
 
     const start = {
         hidden: {
@@ -43,8 +46,8 @@ function Contact() {
 
 
     useEffect(() => {
-        console.log('use effect hook contacts, inView = ', inView)
         if(inView) {
+            setActiveNav("#contact")
             animation.start({
                 scale: 1,
                 opacity: 1

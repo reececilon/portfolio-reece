@@ -14,7 +14,6 @@ function Services() {
 
 
     useEffect(() => {
-        console.log('use effect hook services, inView = ', inView)
         // if(inView) {
         //     animationB.start({
         //         opacity: 1

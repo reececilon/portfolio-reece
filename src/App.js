@@ -10,23 +10,27 @@ import Testimonials from './components/testimonials/testimonials';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import './assets/styles/index.css';
-import {motion} from 'framer-motion';
-import { useState, useEffect } from 'react'
+import { useState, createContext } from 'react'
+
+export const viewContext = createContext();
 
 function App() {
+  const [activeNav, setActiveNav] = useState('#');
 
   return (
     <div className="App">
-      <Loader />
-      <Header />
-      <Nav />
-      <About />
-      <Experience />
-      {/* <Services /> */}
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <viewContext.Provider value={[activeNav, setActiveNav]}>
+        <Loader />
+        <Header />
+        <Nav />
+        <About />
+        <Experience />
+        {/* <Services /> */}
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </viewContext.Provider>
     </div>
   );
 }
